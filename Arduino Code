@@ -1,0 +1,24 @@
+int sensorPin1 = A0; //Sets sensorPin to A0 (for the first potentiometer)
+int sensorPin2 = A1; //Sets sensorPin to A1 (for the second potentiometer)
+int sensorPin3 = A2; //Sets sensorPin to A2 (for the third potentiometer)
+
+int sensorValue1 = 0;// Initializes sensorValue1 to store the potentiometer readings from A0. 
+int sensorValue2 = 0; //Initializes sensorValue2 to store the potentiometer readings from A1
+int sensorValue3 = 0; //Initializes sensorValue3 to store the potentiometer readings from A2
+
+void setup() {
+  Serial.begin(9600);  //initialized serial communication 
+}
+
+void loop() {
+  sensorValue1 = analogRead(sensorPin1); //Reads the first potentiometer
+  sensorValue2 = analogRead(sensorPin2); //Reads the second potentiometer 
+  sensorValue3 = analogRead(sensorPin3); //Reads the third potentiometer
+  
+  Serial.print(sensorValue1);
+  Serial.print(",");
+  Serial.print(sensorValue2); 
+  Serial.print(",");
+  Serial.println(sensorValue3);
+  delay(100); // Delay 
+}
